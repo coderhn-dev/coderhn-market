@@ -1,0 +1,62 @@
+# Configuración de Netlify para CoderHN Market (PWA Vite + React)
+# Sirve tanto para builds hechos por Netlify como para deploys desde GitHub Actions
+# (el CLI `netlify deploy` también lee redirects y headers de este archivo).
+
+[build]
+  command = "bun install --frozen-lockfile && bun run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8 requiere Node >= 20.19; Bun instala dependencias y ejecuta scripts
+  NODE_VERSION = "22"
+  BUN_VERSION = "1.1.43"
+  VITE_USE_MOCKS = "true"
+
+# SPA: todas las rutas (/mercado, /ficha/:id, /admin…) las resuelve React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Service worker y manifest: nunca en caché, para que las actualizaciones lleguen
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/workbox-*.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# Archivos con hash: caché de 1 año (ahorra datos en conexiones rurales)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Cabeceras de seguridad básicas
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(self), geolocation=(self), microphone=()"
