@@ -65,7 +65,7 @@ export default function ActorDetailPage() {
             {actor.email && <li className="flex gap-2"><Mail className="size-5 text-brand-700" /> {actor.email}</li>}
           </ul>
           <ButtonAnchor
-            href={buildWhatsAppLink(actor.whatsapp, `Hola ${actor.name}, los encontré en el Centro Virtual SICA y me gustaría conocer más.`)}
+            href={buildWhatsAppLink(actor.whatsapp, `Hola ${actor.name}, los encontré en CoderHN Market y me gustaría conocer más.`)}
             target="_blank"
             rel="noopener noreferrer"
             variant="whatsapp"

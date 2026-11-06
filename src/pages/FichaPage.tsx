@@ -4,6 +4,7 @@ import { EmptyState, Skeleton } from '@/components/ui/Feedback';
 import { ProductImage } from '@/components/products/ProductImage';
 import { WhatsAppButton } from '@/components/products/WhatsAppButton';
 import { Logo } from '@/components/layout/Logo';
+import { DemoNotice } from '@/components/pwa/DemoNotice';
 import { useAsync } from '@/hooks/useAsync';
 import { productsService } from '@/services';
 import { getCountry, getValueChain } from '@/mocks/catalog';
@@ -18,6 +19,8 @@ export default function FichaPage() {
   const { data: p, loading } = useAsync(() => productsService.getById(id), [id]);
 
   return (
+    <>
+    <DemoNotice />
     <div className="mx-auto min-h-dvh max-w-xl bg-canvas px-4 py-5 pt-safe">
       <div className="mb-5 flex justify-center">
         <Logo />
@@ -71,5 +74,6 @@ export default function FichaPage() {
         </article>
       )}
     </div>
+    </>
   );
 }

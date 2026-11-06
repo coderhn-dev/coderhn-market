@@ -1,10 +1,10 @@
 /**
- * Modelo de dominio del Centro Virtual SICA.
+ * Modelo de dominio de CoderHN Market.
  * Estas interfaces son el contrato entre la UI y la capa de servicios:
  * el backend (Node.js + PostgreSQL) deberá respetar las mismas formas.
  */
 
-/** Los 8 países miembros del SICA (ISO 3166-1 alpha-2). */
+/** Países de Centroamérica y República Dominicana (ISO 3166-1 alpha-2). */
 export type CountryCode = 'BZ' | 'CR' | 'SV' | 'GT' | 'HN' | 'NI' | 'PA' | 'DO';
 
 export interface Country {

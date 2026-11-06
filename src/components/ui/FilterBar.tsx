@@ -53,7 +53,7 @@ export function FilterBar(p: Props) {
       </ChipRow>
       <ChipRow label="Filtrar por país">
         <Chip active={!p.country} onClick={() => p.onCountry(undefined)}>
-          Región SICA
+          Toda la región
         </Chip>
         {COUNTRIES.map((c) => (
           <Chip key={c.code} active={p.country === c.code} onClick={() => p.onCountry(p.country === c.code ? undefined : c.code)}>

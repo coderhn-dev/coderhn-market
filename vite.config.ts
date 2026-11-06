@@ -15,10 +15,10 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['icons/favicon.svg', 'icons/apple-touch-icon.png'],
       manifest: {
-        name: 'Centro Virtual de Facilitación de Negocios e Innovación Rural – SICA',
-        short_name: 'Centro Virtual SICA',
+        name: 'CoderHN Market – Negocios e Innovación Rural',
+        short_name: 'CoderHN Market',
         description:
-          'Plataforma de negocios, formación e innovación rural para la agricultura familiar en la región SICA.',
+          'Prototipo demostrativo de CoderHN: plataforma de negocios, formación e innovación rural para la agricultura familiar de Centroamérica y República Dominicana.',
         lang: 'es',
         start_url: '/',
         scope: '/',

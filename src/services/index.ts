@@ -3,4 +3,4 @@ export { actorsService } from './actors.service';
 export { territoriesService } from './territories.service';
 export { resourcesService } from './resources.service';
 export { dashboardService } from './dashboard.service';
-export { USE_MOCKS } from './config';
+export { USE_MOCKS, DEMO_MODE } from './config';

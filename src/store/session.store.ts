@@ -16,7 +16,7 @@ export const useSession = create<SessionState>()(
       userName: 'Invitado',
       setRole: (role) => set({ role, userName: DEMO_USERS[role] }),
     }),
-    { name: 'cv-sica-session', storage: createJSONStorage(() => localStorage) },
+    { name: 'coderhn-session', storage: createJSONStorage(() => localStorage) },
   ),
 );
 

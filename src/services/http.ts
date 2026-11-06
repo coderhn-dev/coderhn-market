@@ -10,7 +10,7 @@ export const http = axios.create({
 
 http.interceptors.request.use((config) => {
   try {
-    const token = localStorage.getItem('cv-sica-token');
+    const token = localStorage.getItem('coderhn-token');
     if (token) config.headers.Authorization = `Bearer ${token}`;
   } catch {
     /* almacenamiento no disponible */

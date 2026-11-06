@@ -25,6 +25,6 @@ export const useWizard = create<WizardState>()(
       update: (patch) => set((s) => ({ draft: { ...s.draft, ...patch } })),
       reset: () => set({ step: 0, draft: EMPTY }),
     }),
-    { name: 'cv-sica-wizard', storage: createJSONStorage(() => localStorage) },
+    { name: 'coderhn-wizard', storage: createJSONStorage(() => localStorage) },
   ),
 );

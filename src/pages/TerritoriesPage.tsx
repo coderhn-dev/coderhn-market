@@ -16,7 +16,7 @@ export default function TerritoriesPage() {
 
   return (
     <>
-      <PageHeader title="Territorios y cadenas de valor" subtitle="Territorios rurales de los 8 países del SICA y sus cadenas de valor priorizadas." />
+      <PageHeader title="Territorios y cadenas de valor" subtitle="Territorios rurales de Centroamérica y República Dominicana y sus cadenas de valor priorizadas." />
 
       <section className="mb-8">
         <h2 className="sr-only">Cadenas de valor priorizadas</h2>

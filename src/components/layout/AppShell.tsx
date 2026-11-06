@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { DemoNotice } from '@/components/pwa/DemoNotice';
 import { OfflineBanner } from '@/components/pwa/OfflineBanner';
 import { ReloadPrompt } from '@/components/pwa/ReloadPrompt';
 import { BottomNav } from './BottomNav';
@@ -15,6 +16,7 @@ export function AppShell() {
     <div className="flex min-h-dvh">
       <Sidebar />
       <div className="flex min-w-0 flex-1 flex-col">
+        <DemoNotice />
         <TopBar />
         <OfflineBanner />
         {/* pb-24 en móvil reserva espacio para la barra inferior */}

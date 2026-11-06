@@ -11,7 +11,7 @@ interface Db {
   actors: Actor[];
 }
 
-const KEY = 'cv-sica-mockdb-v1';
+const KEY = 'coderhn-mockdb-v1';
 
 function load(): Db {
   try {

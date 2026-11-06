@@ -1,5 +1,5 @@
 {
-  "name": "centro-virtual-sica",
+  "name": "coderhn-market",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -33,5 +33,6 @@
   },
   "engines": {
     "bun": ">=1.1"
-  }
+  },
+  "description": "CoderHN Market – prototipo demostrativo (portafolio CoderHN)"
 }

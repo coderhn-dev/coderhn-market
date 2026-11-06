@@ -1,13 +1,33 @@
-# Centro Virtual de Facilitación de Negocios e Innovación Rural – Región SICA
+# CoderHN Market – Negocios e Innovación Rural
 
-Frontend PWA *mobile-first* de CoderHN Market.
+> **Prototipo demostrativo · Portafolio de CoderHN.**
+> Mockup funcional de pantallas y flujos; todos los datos (organizaciones, productos, teléfonos, precios) son ficticios.
+> No está afiliado a ningún organismo público o regional.
+
+Marketplace PWA *mobile-first* para la agricultura familiar de Centroamérica y República Dominicana: vitrina de productos con contacto por WhatsApp, directorio de actores, centro de formación, ficha QR de trazabilidad y un asistente de publicación para personas con baja alfabetización digital.
+
 Stack: **Bun** · React 18 · TypeScript · Vite · Tailwind CSS v4 · Zustand · React Router v6 · vite-plugin-pwa · lucide-react · qrcode.react.
+
+## Qué demuestra este proyecto
+
+- **PWA instalable y offline-first** pensada para conectividad rural (service worker, caché por estrategia, aviso de actualización).
+- **Diseño adaptativo real**: barra inferior en móvil, riel lateral en tablet, barra lateral completa en escritorio.
+- **Arquitectura desacoplada**: la UI consume servicios tipados; los mocks se reemplazan por un backend REST cambiando una variable de entorno.
+- **UX inclusiva**: asistente de 5 pasos con botones grandes, íconos y borrador persistente.
+- **Roles simulados** (Administrador, Promotor, Productor, Visitante) con flujo de moderación.
+
+## Modo demo
+
+Con `VITE_DEMO_MODE=true` (por defecto):
+- Se muestra la franja "Prototipo demostrativo · Portafolio CoderHN · Datos ficticios".
+- Los botones de WhatsApp abren `wa.me` con el mensaje prellenado **sin número de destino**, para no escribir a teléfonos reales; el usuario elige el contacto.
+- Las acciones (publicar, aprobar, validar) se guardan solo en el navegador; el panel tiene un botón para restablecer los datos.
 
 ## Uso
 
 ```bash
 bun install
-cp .env.example .env     # VITE_USE_MOCKS=true por defecto
+cp .env.example .env     # VITE_USE_MOCKS=true y VITE_DEMO_MODE=true por defecto
 bun run dev              # http://localhost:5173 (expuesto en la red local para probar en el celular)
 bun run build            # typecheck + build de producción con service worker
 bun run preview          # sirve dist/ (el SW solo se registra en build/preview)
@@ -20,7 +40,7 @@ bun run preview          # sirve dist/ (el SW solo se registra en build/preview)
 ```
 src/
 ├── types/            Interfaces de dominio (contrato UI ↔ backend)
-├── mocks/            Datos semilla: países SICA, cadenas, territorios, actores, productos, recursos
+├── mocks/            Datos semilla ficticios: países, cadenas, territorios, actores, productos, recursos
 ├── services/         Capa API: cada servicio tiene implementación mock y HTTP (Axios)
 │   ├── config.ts       VITE_USE_MOCKS / VITE_API_URL
 │   ├── http.ts         Instancia Axios + interceptor de token
@@ -73,4 +93,12 @@ El rol se cambia con el selector de la barra superior (simulado, persistido en l
 
 ## Conectar el backend
 
-Cambiar `VITE_USE_MOCKS=false` y definir `VITE_API_URL`. La UI no cambia: cada `*.service.ts` ya tiene la implementación `api` con los endpoints REST esperados (`GET /products`, `PATCH /products/:id/status`, `GET /actors`, `PATCH /actors/:id/validation`, `GET /territories`, `GET /resources`, `GET /courses`, `GET /dashboard/stats`).
+Cambiar `VITE_USE_MOCKS=false`, `VITE_DEMO_MODE=false` y definir `VITE_API_URL`. La UI no cambia: cada `*.service.ts` ya tiene la implementación `api` con los endpoints REST esperados (`GET /products`, `PATCH /products/:id/status`, `GET /actors`, `PATCH /actors/:id/validation`, `GET /territories`, `GET /resources`, `GET /courses`, `GET /dashboard/stats`).
+
+## Despliegue
+
+`netlify.toml` + `.github/workflows/deploy.yml`: producción en cada push a `main` y vista previa por PR. Requiere los secretos `NETLIFY_AUTH_TOKEN` y `NETLIFY_SITE_ID` en GitHub.
+
+---
+
+Desarrollado por **CoderHN**.

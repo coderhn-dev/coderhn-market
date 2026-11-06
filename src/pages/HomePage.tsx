@@ -11,7 +11,7 @@ import { VALUE_CHAINS } from '@/mocks/catalog';
 const SECTIONS = [
   { to: '/territorios', title: 'Territorios y cadenas', text: 'Conoce los territorios y cadenas de valor priorizadas.', icon: Map },
   { to: '/directorio', title: 'Directorio de actores', text: 'Cooperativas, organizaciones y emprendimientos.', icon: Users },
-  { to: '/mercado', title: 'Mercado regional', text: 'Productos de la agricultura familiar del SICA.', icon: Store },
+  { to: '/mercado', title: 'Mercado regional', text: 'Productos de la agricultura familiar de la región.', icon: Store },
   { to: '/recursos', title: 'Recursos y formación', text: 'Guías, videos y aula virtual.', icon: BookOpen },
   { to: '/innovacion', title: 'Innovación rural', text: 'Ficha QR y publicación guiada.', icon: Lightbulb },
 ];
@@ -24,9 +24,9 @@ export default function HomePage() {
       {/* Hero */}
       <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-brand-800 to-brand-900 px-5 py-8 text-white md:px-10 md:py-12 lg:grid lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-10">
         <div>
-          <p className="text-sm font-medium text-brand-200">CoderHN Market</p>
+          <p className="text-sm font-medium text-brand-200">CoderHN Market · Prototipo de portafolio</p>
           <h1 className="mt-2 text-3xl leading-tight font-bold md:text-4xl lg:text-5xl">
-            Negocios e innovación para la agricultura familiar de la región SICA
+            Negocios e innovación para la agricultura familiar de Centroamérica
           </h1>
           <p className="mt-3 max-w-xl text-brand-100 md:text-lg">
             Conecta con compradores, publica tus productos en minutos y accede a formación desde tu celular.
@@ -56,7 +56,7 @@ export default function HomePage() {
 
       {/* Accesos rápidos */}
       <section>
-        <h2 className="mb-4 text-xl font-bold">Explora el Centro Virtual</h2>
+        <h2 className="mb-4 text-xl font-bold">Explora CoderHN Market</h2>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
           {SECTIONS.map(({ to, title, text, icon: Icon }) => (
             <Link key={to} to={to} className="flex flex-col gap-2 rounded-2xl bg-white p-4 ring-1 ring-stone-200 transition-shadow hover:shadow-md">

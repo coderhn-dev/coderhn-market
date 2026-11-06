@@ -72,7 +72,7 @@ export default function ModerationPage() {
                   <Button className="flex-1" variant="secondary" disabled={busy === p.id} onClick={() => act(p.id, 'rechazado')} icon={<X className="size-4" />}>Rechazar</Button>
                 )}
                 <a
-                  href={buildWhatsAppLink(p.whatsapp, `Hola ${p.producerName}, soy promotor del Centro Virtual SICA. Te escribo sobre tu publicación "${p.name}".`)}
+                  href={buildWhatsAppLink(p.whatsapp, `Hola ${p.producerName}, soy promotor de CoderHN Market. Te escribo sobre tu publicación "${p.name}".`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="grid size-11 shrink-0 place-items-center rounded-xl ring-1 ring-stone-300 hover:bg-stone-50 sm:w-full"
